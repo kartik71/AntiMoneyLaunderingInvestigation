@@ -1,0 +1,13 @@
+{
+  "name": "AntiMoneyLaunderingInvestigation",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Comprehensive AML investigation workflow that analyzes transaction patterns, performs entity resolution, and generates detailed investigation reports for compliance teams.",
+  "scripts": {
+    "dev": "node src/server/index.js",
+    "start": "node src/server/index.js",
+    "build": "echo \"No build step\"",
+    "test": "echo \"No tests yet\""
+  },
+  "license": "MIT"
+}
