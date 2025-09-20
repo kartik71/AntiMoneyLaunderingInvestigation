@@ -1,0 +1,172 @@
+{
+  "id": "tpl-0011",
+  "name": "Anti-Money Laundering Investigation",
+  "description": "Comprehensive AML investigation workflow that analyzes transaction patterns, performs entity resolution, and generates detailed investigation reports for compliance teams.",
+  "industry": "Banking & Finance",
+  "pattern": "Multi-Agent",
+  "complexity": "Expert",
+  "rating": 4.8,
+  "downloads": 1247,
+  "favorites": 89,
+  "executionTime": "12-18 min",
+  "tags": [
+    "aml",
+    "compliance",
+    "investigation",
+    "risk",
+    "sdlc"
+  ],
+  "steps": [
+    {
+      "id": "alert-intake",
+      "name": "AML Alert Intake",
+      "description": "Collect and validate AML alerts from transaction monitoring systems; attach runId and timestamp."
+    },
+    {
+      "id": "entity-resolution",
+      "name": "Entity Resolution",
+      "description": "Resolve customer entities and identify related parties across KYC, CRM, and external data."
+    },
+    {
+      "id": "pattern-analysis",
+      "name": "Transaction Pattern Analysis",
+      "description": "Detect structuring, smurfing, and velocity anomalies; emit scored indicators."
+    },
+    {
+      "id": "risk-scoring",
+      "name": "Risk Scoring",
+      "description": "Aggregate indicator scores with profile risk; compute composite SAR likelihood."
+    },
+    {
+      "id": "investigation-planning",
+      "name": "Investigation Planning",
+      "description": "Draft action plan, assign tasks, and set SLAs with decision gates."
+    },
+    {
+      "id": "report-compilation",
+      "name": "SAR Report Compilation",
+      "description": "Assemble narrative, evidence set, and filing metadata; persist and return JSON."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "alert-intake",
+      "type": "agentbridge",
+      "data": {
+        "label": "AML Alert Intake",
+        "nodeType": "input"
+      },
+      "position": {
+        "x": 60,
+        "y": 120
+      }
+    },
+    {
+      "id": "entity-resolution",
+      "type": "agentbridge",
+      "data": {
+        "label": "Entity Resolution",
+        "nodeType": "llm"
+      },
+      "position": {
+        "x": 310,
+        "y": 120
+      }
+    },
+    {
+      "id": "pattern-analysis",
+      "type": "agentbridge",
+      "data": {
+        "label": "Transaction Pattern Analysis",
+        "nodeType": "llm"
+      },
+      "position": {
+        "x": 560,
+        "y": 120
+      }
+    },
+    {
+      "id": "risk-scoring",
+      "type": "agentbridge",
+      "data": {
+        "label": "Risk Scoring",
+        "nodeType": "llm"
+      },
+      "position": {
+        "x": 810,
+        "y": 120
+      }
+    },
+    {
+      "id": "investigation-planning",
+      "type": "agentbridge",
+      "data": {
+        "label": "Investigation Planning",
+        "nodeType": "a2a"
+      },
+      "position": {
+        "x": 1060,
+        "y": 120
+      }
+    },
+    {
+      "id": "report-compilation",
+      "type": "agentbridge",
+      "data": {
+        "label": "SAR Report Compilation",
+        "nodeType": "output"
+      },
+      "position": {
+        "x": 1310,
+        "y": 120
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-0",
+      "source": "alert-intake",
+      "target": "entity-resolution",
+      "type": "agentbridge"
+    },
+    {
+      "id": "edge-1",
+      "source": "entity-resolution",
+      "target": "pattern-analysis",
+      "type": "agentbridge"
+    },
+    {
+      "id": "edge-2",
+      "source": "pattern-analysis",
+      "target": "risk-scoring",
+      "type": "agentbridge"
+    },
+    {
+      "id": "edge-3",
+      "source": "risk-scoring",
+      "target": "investigation-planning",
+      "type": "agentbridge"
+    },
+    {
+      "id": "edge-4",
+      "source": "investigation-planning",
+      "target": "report-compilation",
+      "type": "agentbridge"
+    }
+  ],
+  "preview": "AML Alert Intake → Entity Resolution → Transaction Pattern Analysis → Risk Scoring → Investigation Planning → SAR Report Compilation",
+  "featured": true,
+  "createdAt": "2024-01-15",
+  "author": "AgentBridge Team",
+  "deployments": 160,
+  "lastDeployed": "2025-09-10T11:35:09.184Z",
+  "configuration": {
+    "provider": "nvidia",
+    "region": "us-west-2",
+    "compute": "memory-optimized"
+  },
+  "healthStatus": "healthy",
+  "deploymentCount": 71,
+  "githubRepo": "https://github.com/agentbridge/anti-money-laundering-investigation",
+  "maintainer": "AgentBridge Team"
+}
